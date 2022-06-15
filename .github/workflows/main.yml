@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: xcodebuild
+      run: xcodebuild -teamID=""
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
