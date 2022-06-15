@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: xcodebuild
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Accord
+        path: './build/Release/Accord.app'
